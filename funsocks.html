@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+  <title>Fun Socks</title>
+  <script src="https://unpkg.com/vue"></script>
+
+  <style>
+    body{
+      background-color: whitesmoke;
+      margin: 0;
+      padding: 0;
+    }
+    h1{
+      text-align: center;
+      background-color: mediumslateblue;
+      display: block;
+      padding-top: 4px;
+      padding-bottom: 16px;
+      margin-top: 0;
+      font-size: 50px;
+    }
+    .ideas, .funshoes{
+      padding: 4px;
+    }
+    .wrapper{
+      display: flex;
+    }
+    .ideas{
+      background-color: plum;
+      flex: 1;
+      display: flex;
+      flex-flow: row wrap;
+      font-size: 25px;
+      border: 4px solid mediumslateblue;
+    }
+    .ideas div{
+      flex-grow: 1;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .ideas div:nth-child(even){
+      background-color: powderblue;
+    }
+    .funshoes{
+      background-color: powderblue;
+      counter-reset: section;
+      flex: 2;
+      font-size: 25px;
+      border: 4px solid mediumslateblue;
+    }
+    .funshoes div::before {
+      counter-increment: section;
+      content: counter(section) ".";
+      padding-right: 2px;
+    }
+    .funshoes div:nth-child(even){
+      background-color: plum;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Fun Socks</h1>
+    <div class="wrapper">
+      <div class="ideas">
+        <div>penguins with watermelons</div>
+        <div>firetruck transformers</div>
+        <div>fish watching humans in bowls</div>
+      </div>
+      <div class="funshoes">
+        <div>Converse</div>
+        <div>Vans</div>
+        <div>Sperry</div>
+        <div>ugly sneakers</div>
+        <div>cool sneakers</div>
+      </div>
+    </div>
+  <div>
+</body>

@@ -1,10 +1,9 @@
 <head>
   <title>Pumpkin Pie Recipe</title>
-  <script src="https://unpkg.com/vue"></script>
+  <script =src="https://unpkg.com/vue"></script>
   <style>
     body {
-      background-color: #FFFEDD;
-      font-family: sans-serif;
+      background-color:=sans-serif;
       margin: 0;
     }
 
@@ -20,7 +19,7 @@
       align-items: center;
       justify-content: space-between;
       font-size: 24px;
-      cursor: 
+      cursor:
     }
 
     .nav-arrow{
@@ -91,7 +90,7 @@
      <div @click="switchRecipe(-1)" class="nav-arrow">◀</div>
      <div>{{ recipe.title }}</div>
      <div @click="switchRecipe(1)" class="nav-arrow">▶</div>
-    </div>  
+    </div>
 
     <div class="recipe-wrapper">
       <div class="ingredients">
@@ -102,7 +101,7 @@
           <div class="recipe-step" v-for="step in recipe.steps">{{ step }}</div>
       </div>
     </div>
-      
+
   </div>
 
   <script>
@@ -153,7 +152,7 @@
           "Put eggs in saucepan.",
           "Cook eggs for 5-7 minutes.",
         ],
-      }      
+      }
     ];
 
     var recipeIndex = 0;
