@@ -63,20 +63,36 @@
 
 <body>
   <div id="app">
-    <h1>Fun Socks</h1>
+    <h1>{{ title }}</h1>
     <div class="wrapper">
       <div class="ideas">
-        <div>penguins with watermelons</div>
-        <div>firetruck transformers</div>
-        <div>fish watching humans in bowls</div>
+        <div v-for="sock in socks">{{ sock }}</div>
       </div>
       <div class="funshoes">
-        <div>Converse</div>
-        <div>Vans</div>
-        <div>Sperry</div>
-        <div>ugly sneakers</div>
-        <div>cool sneakers</div>
+        <div v-for="shoe in shoes">{{ shoe }}</div>
       </div>
     </div>
+    <input v-model="message"/>
+    <button @click="badCypher()">CYPHER</button>
   <div>
+
+  <script>
+    var myApp = new Vue({
+      el: "#app",
+      data: {
+        title: "Fun Socks",
+        socks: ["penguin watermelons", "firetruck transformers",
+         "fish watching humans in fish bowls", "pizzas with sunglasses"],
+        shoes: ["Converse", "Vans", "Sperry", "Ugly Sneakers", "Cool Sneakers"],
+        message: "message",
+      },
+      methods: {
+        badCypher: function(){
+          var oldmessage = this.message;
+          this.message = oldmessage + "ay";
+        }
+      }
+    });
+
+  </script>
 </body>
