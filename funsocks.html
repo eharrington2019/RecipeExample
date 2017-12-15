@@ -72,27 +72,64 @@
         <div v-for="shoe in shoes">{{ shoe }}</div>
       </div>
     </div>
-    <input v-model="message"/>
-    <button @click="badCypher()">CYPHER</button>
-  <div>
+    <button @click="switchSeason(-1)">Previous</button>
+    <button @click="switchSeason(1)">Next</button>
+  </div>
 
   <script>
-    var myApp = new Vue({
+    var seasons = [
+      {
+        title: "Summer Socks and Shoes",
+        socks: [
+          "penguin watermelons",
+          "firetruck transformers",
+          "fish watching humans in fish bowls",
+          "pizzas with sunglasses",
+        ],
+        shoes: [
+          "Converse",
+          "Vans",
+          "Sperry",
+          "Ugly Sneakers",
+          "Cool Sneakers",
+        ],
+      },
+      {
+        title: "Winter Socks and Shoes",
+        socks: [
+          "skiing aligators",
+          "chickens going out for recess",
+        ],
+        shoes: [
+          "Uggs",
+          "Bean Boots",
+          "Bogs",
+        ],
+      }
+    ];
+
+    var seasonIndex = 0;
+    var season = seasons[seasonIndex];
+    var app = new Vue({
       el: "#app",
       data: {
-        title: "Fun Socks",
-        socks: ["penguin watermelons", "firetruck transformers",
-         "fish watching humans in fish bowls", "pizzas with sunglasses"],
-        shoes: ["Converse", "Vans", "Sperry", "Ugly Sneakers", "Cool Sneakers"],
-        message: "message",
+        title: season.title,
+        socks: season.socks,
+        shoes: season.shoes,
       },
       methods: {
-        badCypher: function(){
-          var oldmessage = this.message;
-          this.message = oldmessage + "ay";
+        switchSeason: function(delta) {
+          seasonIndex += delta;
+          if(seasonIndex < 0){
+            seasonIndex += seasons.length;
+          }
+          seasonIndex = seasonIndex % seasons.length;
+          season = seasons[seasonIndex];
+          this.title = season.title;
+          this.socks = season.socks;
+          this.shoes = season.shoes;
         }
       }
     });
-
   </script>
 </body>
